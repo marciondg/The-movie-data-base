@@ -1,3 +1,16 @@
 body{
     font-family: 'Open Sans', sans-serif;
 }
+h2{
+    font-family: 'Poppins', sans-serif;
+}
+.card{
+    text-align: center;
+}
+.card-title{
+    font-weight: bolder;
+}
+::selection{
+    background: rgb(218, 244, 0);
+    color: rgb(7, 7, 7);
+}
