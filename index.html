@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The movie data base (TMDb)</title>
-    <link rel="shortcut icon" href="https://www.themoviedb.org/assets/2/favicon-32x32-543a21832c8931d3494a68881f6afcafc58e96c5d324345377f3197a37b367b5.png">
+    <link rel="shortcut icon"
+        href="https://www.themoviedb.org/assets/2/favicon-32x32-543a21832c8931d3494a68881f6afcafc58e96c5d324345377f3197a37b367b5.png">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -23,8 +24,8 @@
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.html"><img
-                        src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg" alt="..."
-                        width="100"></a>
+                        src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg"
+                        alt="..." width="100"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -32,7 +33,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-<!--                         <li class="nav-item dropdown">
+                        <!--                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Menu 1
@@ -56,34 +57,38 @@
     <!-- Carousel -->
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/kf456ZqeC45XTvo6W9pW5clYKfQ.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/p7fwOnlxYYlB4A8U2b0JfX21Rr1.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/suopoADq0k8YZr4dQXcU6pToj6s.jpg" class="d-block w-100" alt="...">
-          </div>
+            <div class="carousel-item active">
+                <img src="https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/kf456ZqeC45XTvo6W9pW5clYKfQ.jpg"
+                    class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg"
+                    class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/p7fwOnlxYYlB4A8U2b0JfX21Rr1.jpg"
+                    class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/suopoADq0k8YZr4dQXcU6pToj6s.jpg"
+                    class="d-block w-100" alt="...">
+            </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
         </a>
         <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
         </a>
-      </div>
+    </div>
     <hr>
     <section id="tendencias">
-    <div class="container" >
-    <h2>Tendencias</h2>
-        <div class="row row-cols-1 row-cols-md-3 g-5" id="wrapperPeliculas">
-<!--             <div class="col">
+        <div class="container">
+            <h2>Tendencias</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-5" id="wrapperPeliculas">
+                <!--             <div class="col">
                 <div class="card h-100 shadow-sm">
                         <img src="..." class="card-img-top"
                             alt="...">
@@ -95,57 +100,64 @@
                             laboriosam reprehenderit! Quam laudantium fuga odit accusantium quas.</p>
                 </div>
             </div> -->
+            </div>
         </div>
-    </div>
     </section>
     <br>
-    <footer>
+    <footer class="text-md-start">
         <div class="container">
-            <nav>
-                <div id="logo">
-                    <img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg" width="130" height= "94" alt="">
+            <div class="row g-2">
+                    <div class="col-md-3">
+                        <img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg"
+                            width="130" height="94" alt="">
+                    </div>
+                    <div class="col">
+                        <H3>lo básico</H3>
+                        <ul>
+                            <li>Sobre nosotros</li>
+                            <li>Contacto</li>
+                            <li>Soporte</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h3>Peliculas</h3>
+                        <ul>
+                            <li>Más votadas</li>
+                            <li>Más populares</li>
+                            <li>Más recientes</li>
+                            <li>En cartelera</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h3>Series</h3>
+                        <ul>
+                            <li>Mejor rankeadas</li>
+                            <li>Más populares</li>
+                            <li>Más recientes</li>
+                            <li>En emisión</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h3>Redes sociales</h3>
+                        <ul>
+                            <li>
+                                Facebook
+                            </li>
+                            <li>
+                                Twitter
+                            </li>
+                            <li>
+                                Instagram
+                            </li>
+                            <li>
+                                Youtube
+                            </li>
+                        </ul>
+                    </div>
+                <div class="col-12" id="volver">
+                    <a href="#">Volver al inicio</a>
                 </div>
-                <div><H3>lo básico</H3>
-                <ul>
-                    <li>Sobre nosotros</li>
-                    <li>Contacto</li>
-                    <li>Soporte</li>
-                </ul></div>
-                <div><h3>Peliculas</h3>
-                <ul>
-                    <li>Más votadas</li>
-                    <li>Más populares</li>
-                    <li>Más recientes</li>
-                    <li>En cartelera</li>
-                </ul></div>
-                <div><h3>Series</h3>
-                <ul>
-                    <li>Mejor rankeadas</li>
-                    <li>Más populares</li>
-                    <li>Más recientes</li>
-                    <li>En emisión</li>
-                </ul></div>
-                <div>
-                    <h3>Redes sociales</h3>
-                    <ul>
-                        <li>
-                            Facebook
-                        </li>
-                        <li>
-                            Twitter
-                        </li>
-                        <li>
-                            Instagram
-                        </li>
-                        <li>
-                            Youtube
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-                <div class="col-md-4" id="volver">
-                        <a href="#">Volver al inicio</a>
-                </div>
+            </div>
         </div>
     </footer>
 
