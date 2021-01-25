@@ -7,10 +7,10 @@ let peliculas;
 
 /* https://api.themoviedb.org/3/trending/all/week?api_key=ab5eea38d623f059c3196ac7fb88a4c1 Obtener Tendencias */
 /* https://api.themoviedb.org/3/discover/movie?api_key=ab5eea38d623f059c3196ac7fb88a4c1&language=es-ES&sort_by=popularity.desc&include_adult=false&include_video=false&page=1 Peliculas Populares*/
-function obtenerPeliculas(url,callback) {
+function obtenerPeliculas(url, callback) {
     var response;
     response = new XMLHttpRequest();
-    response.onreadystatechange = function () {
+    response.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             callback(this)
         }
@@ -25,6 +25,7 @@ function renderizarPeliculas(respuesta) {
     peliculas = peliculaJSON.results;
     crearPeliculaHTML(peliculas);
 }
+
 function renderizarTendencias(respuesta) {
     peliculaJSON = JSON.parse(respuesta.responseText);
     peliculas = peliculaJSON.results;
@@ -89,7 +90,7 @@ function crearTendencias(coleccionPeliculas) {
         /* Agrego titulo noticia */
         let tituloPelicula = document.createElement('h3');
         tituloPelicula.classList.add('card-title');
-        if(unaPelicula.media_type == "tv")
+        if (unaPelicula.media_type == "tv")
             tituloPelicula.innerHTML = unaPelicula.name;
         else
             tituloPelicula.innerHTML = unaPelicula.title;
@@ -102,6 +103,6 @@ function crearTendencias(coleccionPeliculas) {
     }
 }
 
-function cargarTendencias(){
-    obtenerPeliculas(`https://api.themoviedb.org/3/trending/all/week?api_key=${APIKEY}`,renderizarTendencias);
+function cargarTendencias() {
+    obtenerPeliculas(`https://api.themoviedb.org/3/trending/all/week?api_key=${APIKEY}`, renderizarTendencias);
 }
