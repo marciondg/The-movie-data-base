@@ -73,32 +73,36 @@ function crearTendencias(coleccionPeliculas) {
         WRAPPERPELICULAS.appendChild(nuevaColumna);
         /* Creo card */
         let nuevaCard = document.createElement('div');
-        nuevaCard.classList.add('card');
-        nuevaCard.classList.add('h-100');
-        nuevaCard.classList.add('shadow-sm');
+        nuevaCard.classList.add('flip-card');
         nuevaColumna.appendChild(nuevaCard);
+        let cardInner = document.createElement('div');
+        cardInner.classList.add('flip-card-inner');
+        nuevaCard.appendChild(cardInner);
+        let cardFront = document.createElement('div');
+        cardFront.classList.add('flip-card-front');
+        cardInner.appendChild(cardFront);
         /* Agrego imagen de la noticia */
         let imagen = document.createElement('img');
         imagen.src = `${BASEURLIMG}${unaPelicula.poster_path}`;
-        imagen.classList.add('card-img-top');
-        nuevaCard.appendChild(imagen);
-        /* Agrego card-body */
-        let cardBody = document.createElement('div');
-        cardBody.classList.add('card-body');
-        nuevaCard.appendChild(cardBody);
-        /* Agrego titulo noticia */
+        imagen.style="width:300px;height:300px;"
+        cardFront.appendChild(imagen);
+        let cardBack = document.createElement('div');
+        cardBack.classList.add('flip-card-back');
+        cardInner.appendChild(cardBack);
         let tituloPelicula = document.createElement('h3');
-        tituloPelicula.classList.add('card-title');
         if(unaPelicula.media_type == "tv")
             tituloPelicula.innerHTML = unaPelicula.name;
         else
             tituloPelicula.innerHTML = unaPelicula.title;
-        cardBody.appendChild(tituloPelicula);
+        cardBack.appendChild(tituloPelicula);
         /* Agrego descripcion noticia */
         let sinopsis = document.createElement('p');
         sinopsis.classList.add('card-text');
-        sinopsis.innerHTML = unaPelicula.overview;
-        cardBody.appendChild(sinopsis);
+        if(unaPelicula.overview.length>355)
+            sinopsis.innerHTML = `${unaPelicula.overview.substring(0,355)}...`;
+        else
+            sinopsis.innerHTML = unaPelicula.overview;
+        cardBack.appendChild(sinopsis);
     }
 }
 
