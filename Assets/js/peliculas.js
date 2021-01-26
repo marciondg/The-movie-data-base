@@ -41,7 +41,7 @@ function crearPeliculas(coleccionPeliculas) {
         nuevaColumna.appendChild(nuevaCard);
         /* Agrego imagen de la noticia */
         let imagen = document.createElement('img');
-        if(unaPelicula.poster_path === null)
+        if (unaPelicula.poster_path === null)
             imagen.src = "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg";
         else
             imagen.src = `${BASEURLIMG}${unaPelicula.poster_path}`;
@@ -70,18 +70,26 @@ function crearPeliculas(coleccionPeliculas) {
 function cargarPeliculasEnCartelera() {
     obtenerPeliculas(`https://api.themoviedb.org/3/movie/now_playing?api_key=${APIKEY}&language=es-ES&page=1`, renderizarPeliculas);
 }
+
 function cargarPeliculasAEstrenar() {
     obtenerPeliculas(`https://api.themoviedb.org/3/movie/upcoming?api_key=${APIKEY}&language=es-ES&page=1&region=US`, renderizarPeliculas);
 }
+
 function cargarPeliculasMejorValoradas() {
     obtenerPeliculas(`https://api.themoviedb.org/3/movie/top_rated?api_key=${APIKEY}&language=es-ES&page=1`, renderizarPeliculas);
 }
+
 function cargarPeliculasMasPopulares() {
     obtenerPeliculas(`https://api.themoviedb.org/3/movie/popular?api_key=${APIKEY}&language=es-ES&page=1`, renderizarPeliculas);
 }
 
-let seleccionActual = 'null'
-BOTONCARTELERA.onclick = function (){
+/*Carga por defecto las peliculas de la primer opción para que el sitio no esté vacío*/
+window.onload = function() {
+    cargarPeliculasMejorValoradas();
+};
+let seleccionActual = 'mejorValoradas';
+
+BOTONCARTELERA.onclick = function() {
     if (seleccionActual != 'enCartelera') {
         eliminarPeliculasExistentes();
         cargarPeliculasEnCartelera();
@@ -89,7 +97,7 @@ BOTONCARTELERA.onclick = function (){
     seleccionActual = 'enCartelera';
 };
 
-BOTONPOPULARES.onclick = function (){
+BOTONPOPULARES.onclick = function() {
     if (seleccionActual != 'populares') {
         eliminarPeliculasExistentes();
         cargarPeliculasMasPopulares();
@@ -97,14 +105,14 @@ BOTONPOPULARES.onclick = function (){
     seleccionActual = 'populares';
 };
 
-BOTONAESTRENAR.onclick = function (){
+BOTONAESTRENAR.onclick = function() {
     if (seleccionActual != 'aEstrenar') {
         eliminarPeliculasExistentes();
         cargarPeliculasAEstrenar();
     }
     seleccionActual = 'aEstrenar';
 };
-BOTONMEJORVALORADAS.onclick = function (){
+BOTONMEJORVALORADAS.onclick = function() {
     if (seleccionActual != 'mejorValoradas') {
         eliminarPeliculasExistentes();
         cargarPeliculasMejorValoradas();
@@ -112,6 +120,6 @@ BOTONMEJORVALORADAS.onclick = function (){
     seleccionActual = 'mejorValoradas';
 };
 
-function eliminarPeliculasExistentes(){
+function eliminarPeliculasExistentes() {
     WRAPPERPELICULAS.innerHTML = "";
 }

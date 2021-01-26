@@ -1,9 +1,8 @@
 const APIKEY = "ab5eea38d623f059c3196ac7fb88a4c1";
 const BASEURI = "https://api.themoviedb.org/3/";
 const BASEURLIMG = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2";
-const WRAPPERSERIES = document.getElementById('wrapperseries');
+const WRAPPERSERIES = document.getElementById('wrapperSeries');
 const BOTONEMISION = document.getElementById('enEmision');
-const BOTONRECIENTES = document.getElementById('recientes');
 const BOTONPOPULARES = document.getElementById('populares');
 const BOTONMEJORVALORADAS = document.getElementById('mejorValoradas');
 let serieJSON;
@@ -53,10 +52,7 @@ function crearseries(coleccionSeries) {
         /* Agrego titulo noticia */
         let tituloserie = document.createElement('h3');
         tituloserie.classList.add('card-title');
-        if (unaSerie.media_type == "tv")
-            tituloserie.innerHTML = unaSerie.name;
-        else
-            tituloserie.innerHTML = unaSerie.title;
+        tituloserie.innerHTML = unaSerie.name;
         cardBody.appendChild(tituloserie);
         /* Agrego descripcion noticia */
         let sinopsis = document.createElement('p');
@@ -70,10 +66,6 @@ function cargarSeriesEnEmision() {
     obtenerSeries(`https://api.themoviedb.org/3/tv/on_the_air?api_key=${APIKEY}&language=es-ES&page=1`, renderizasSeries);
 }
 
-function cargarSeriesRecientes() {
-    obtenerSeries(`https://api.themoviedb.org/3/tv/latest?api_key=${APIKEY}&language=es-ES&page=2`, renderizasSeries);
-}
-
 function cargarSeriesMejorValoradas() {
     obtenerSeries(`https://api.themoviedb.org/3/tv/top_rated?api_key=${APIKEY}&language=es-ES&page=1`, renderizasSeries);
 }
@@ -82,13 +74,18 @@ function cargarSeriesMasPopulares() {
     obtenerSeries(`https://api.themoviedb.org/3/tv/popular?api_key=${APIKEY}&language=es-ES&page=1`, renderizasSeries);
 }
 
-let seleccionActual = 'null'
+/*Carga por defecto las series de la primer opción para que el sitio no esté vacío*/
+window.onload = function() {
+    cargarSeriesMejorValoradas();
+};
+let seleccionActual = 'mejorValoradas';
+
 BOTONEMISION.onclick = function() {
     if (seleccionActual != 'enCartelera') {
         eliminarseriesExistentes();
-        cargarSeriesEnCartelera();
+        cargarSeriesEnEmision();
     }
-    seleccionActual = 'enCartelera';
+    seleccionActual = 'enEmision';
 };
 
 BOTONPOPULARES.onclick = function() {
@@ -99,13 +96,6 @@ BOTONPOPULARES.onclick = function() {
     seleccionActual = 'populares';
 };
 
-BOTONRECIENTES.onclick = function() {
-    if (seleccionActual != 'recientes') {
-        eliminarseriesExistentes();
-        cargarSeriesRecientes();
-    }
-    seleccionActual = 'recientes';
-};
 BOTONMEJORVALORADAS.onclick = function() {
     if (seleccionActual != 'mejorValoradas') {
         eliminarseriesExistentes();
@@ -115,5 +105,5 @@ BOTONMEJORVALORADAS.onclick = function() {
 };
 
 function eliminarseriesExistentes() {
-    WRAPPERserieS.innerHTML = "";
+    WRAPPERSERIES.innerHTML = "";
 }
