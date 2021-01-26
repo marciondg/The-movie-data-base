@@ -63,24 +63,4 @@ function crearPeliculas(coleccionPeliculas) {
 
 window.onload = function cargarTendencias() {
     obtenerPeliculas(`https://api.themoviedb.org/3/trending/all/week?api_key=${APIKEY}`, renderizarPeliculas);
-<<<<<<< HEAD:Assets/js/scripts.js
-}
-
-function cargarPeliculasEnCartelera() {
-    obtenerPeliculas(`https://api.themoviedb.org/3/movie/now_playing?api_key=ab5eea38d623f059c3196ac7fb88a4c1&language=es-ES&page=1`, renderizarPeliculas);
-}
-
-let seccionActual = 'null'
-BOTONCARTELERA.onclick = function() {
-    if (seccionActual != 'enCartelera') {
-        eliminarPeliculasExistentes();
-        cargarPeliculasEnCartelera();
-    }
-    seccionActual = 'enCartelera';
-};
-
-function eliminarPeliculasExistentes() {
-    WRAPPERPELICULAS.innerHTML = "";
-=======
->>>>>>> 96ca930ec3d4850d0c78ffd4cfb9a7f43ae57635:Assets/js/home.js
 }
