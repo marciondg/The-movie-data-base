@@ -2,6 +2,10 @@ const APIKEY = "ab5eea38d623f059c3196ac7fb88a4c1";
 const BASEURI = "https://api.themoviedb.org/3/";
 const BASEURLIMG = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2";
 const WRAPPERPELICULAS = document.getElementById('wrapperPeliculas');
+const WRAPPERRESULTADOS = document.getElementById('wrapperResultados');
+let BOTONBUSCAR = document.getElementById('buscar');
+let resultadosJSON;
+let resultados;
 let peliculaJSON;
 let peliculas;
 
@@ -64,3 +68,79 @@ function crearPeliculas(coleccionPeliculas) {
 window.onload = function cargarTendencias() {
     obtenerPeliculas(`https://api.themoviedb.org/3/trending/all/week?api_key=${APIKEY}`, renderizarPeliculas);
 }
+
+let seleccionActual = 'tendencias';
+BOTONBUSCAR = false;
+
+
+/*Buscador*/
+BOTONBUSCAR.onclick = function() {
+    BOTONBUSCAR = true;
+    if (BOTONBUSCAR == true) {
+
+        function eliminarTendencias() {
+            WRAPPERPELICULAS.innerHTML = "";
+        }
+
+        if (seleccionActual != 'busqueda') {
+            eliminarTendencias();
+            cargarResultados();
+        }
+        seleccionActual = 'busqueda';
+
+        function obtenerResultados(url, callback) {
+            var response;
+            response = new XMLHttpRequest();
+            response.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    callback(this)
+                }
+            };
+            response.open("GET", url, true);
+            response.send();
+        }
+
+        function renderizarResultados(respuesta) {
+            peliculaJSON = JSON.parse(respuesta.responseText);
+            peliculas = peliculaJSON.results;
+            crearResultados(resultados);
+        }
+
+        function crearResultados(coleccionResultados) {
+            for (let unResultado of coleccionResultados) {
+                /* Creo nueva col */
+                let nuevaColumna = document.createElement('div')
+                nuevaColumna.classList.add('col');
+                WRAPPERPELICULAS.appendChild(nuevaColumna);
+                /* Creo card */
+                let nuevaCard = document.createElement('div');
+                nuevaCard.classList.add('card');
+                nuevaCard.classList.add('h-100');
+                nuevaCard.classList.add('shadow-sm');
+                nuevaColumna.appendChild(nuevaCard);
+                /* Agrego imagen de la noticia */
+                let imagen = document.createElement('img');
+                imagen.src = `${BASEURLIMG}${unResultado.poster_path}`;
+                imagen.classList.add('card-img-top');
+                nuevaCard.appendChild(imagen);
+                /* Agrego card-body */
+                let cardBody = document.createElement('div');
+                cardBody.classList.add('card-body');
+                nuevaCard.appendChild(cardBody);
+                /* Agrego titulo noticia */
+                let tituloResultado = document.createElement('h3');
+                tituloResultado.classList.add('card-title');
+                if (unResultado.media_type == "tv")
+                    tituloResultado.innerHTML = unResultado.original_title;
+                else
+                    tituloResultado.innerHTML = unResultado.original_title;
+                cardBody.appendChild(tituloResultado);
+            }
+        }
+        window.onload = function cargarResultados() {
+            obtenerResultados(`https://api.themoviedb.org/3/search/multi?api_key=${APIKEY}`, renderizarResultados);
+        }
+    }
+
+
+};

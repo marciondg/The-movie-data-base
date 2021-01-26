@@ -66,3 +66,8 @@ ul {
 .btn-group {
     margin-bottom: 20px;
 }
+
+.btn-outline-success {
+    color: #ffffff;
+    border-color: #ffffff;
+}
