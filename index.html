@@ -102,60 +102,74 @@
 
 
                             <div class="card-body">
-                                    <form id="form1" method="post" class="needs-validation" novalidate>
-                                              <div class="form-row">
-                                                <div class="col-md-12 mb-3">
-                                                     <label for="validationCustom01" class="form-label">Nombre</label>
-                                <input type="text" class="form-control" id="validationCustom01" value="" required>
-                                <div class="valid-feedback">Válido!</div>
-                                <div class="invalid-feedback">Complete el campo.</div>
-                              </div>
+                                <form id="form1" method="post" class="needs-validation" novalidate>
+                                    <div class="form-row">
+                                        <div class="col-md-12 mb-3">
+                                            <label for="validationCustom01" class="form-label">Nombre</label>
+                                            <input type="text" class="form-control" id="validationCustom01" value="" required>
+                                            <div class="valid-feedback">Válido!</div>
+                                            <div class="invalid-feedback">Complete el campo.</div>
+                                        </div>
 
 
 
-                      <!--   <label for="validationCustom01" class="form-label">Nombre</label>
+                                        <!--   <label for="validationCustom01" class="form-label">Nombre</label>
                       <input name="validationCustom01" type="text" class="form-control" id="validationCustom01" placeholder="" value="" required>
                       <div class="valid-feedback"></div>
                       <div class="invalid-feedback">Complete el campo.</div>    
                     </div> -->
-                    <div class="col-md-12 mb-3">
-                      <label for="validationCustom02" class="form-label">Email</label>
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        </div>
+                                        <div class="col-md-12 mb-3">
+                                            <label for="validationCustom02" class="form-label">Email</label>
+                                            <div class="input-group">
 
-                        <input name="mail" type="mail" class="form-control" id="mail" placeholder="ejemplo@mail.com" aria-describedby="inputGroupPrepend" required>
-                        <div class="valid-feedback">Válido!</div>
-                      <div class="invalid-feedback">Complete el campo.</div>   
-                      </div>
-                    </div>
-                  </div>
 
-                  <div> <p>Indicanos el motivo de tu mensaje:</p>
-                                        <input type="radio" id="problema" name="motivo" value="problema">
+                                                <input name="email" type="email" class="form-control" id="email" placeholder="ejemplo@mail.com" aria-describedby="inputGroupPrepend" required>
+                                                <div class="valid-feedback">Válido!</div>
+                                                <div class="invalid-feedback">Complete el campo.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <p>Indicanos el motivo de tu mensaje:</p>
+
+                                        <div class="container">
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected>Elige una opción</option>
+                                                <option value="1">Problema</option>
+                                                <option value="2">Propuesta</option>
+                                                <option value="3">Me gusta/No me gusta</option>
+                                                <option value="3">Otro</option>
+                                              </select>
+                                        </div>
+
+
+
+                                        <!-- <input type="radio" id="problema" name="motivo" value="problema">
                                         <label for="docente">Problema</label><br>
                                         <input type="radio" id="propuesta" name="motivo" value="propuesta">
                                         <label for="estudiante">Propuesta de mejora</label><br>
                                         <input type="radio" id="mg-nomg" name="motivo" value="mg-nomg">
                                         <label for="otro">Me gusta/No me gusta</label> <br>
                                         <input type="radio" id="otro" name="motivo" value="otro">
-                                        <label for="otro">Otro</label> <br>
+                                        <label for="otro">Otro</label> <br> -->
+
+
                                         <label for="mensaje" class="col-form-label">Mensaje:</label>
                                         <textarea name="mensaje" class="form-control" id="mensaje"> 
                                        </textarea>
-                        </div>
-                  
-                  <!-- <div class="form-group">
+                                    </div>
+
+                                    <!-- <div class="form-group">
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
                       <label class="form-check-label" for="invalidCheck">Acepto términos y condiciones</label>
                       <div class="valid-feedback">¡Aceptado!</div>
                     </div>
                   </div> -->
-                  <button class="btn btn-success" type="submit">Enviar</button>
-                </form>
-        </div>  
+                                    <button class="btn btn-success" type="submit">Enviar</button>
+                                </form>
+                            </div>
 
 
 
@@ -185,36 +199,36 @@
                                     </div>
                                 </form>
  -->
-                            </div>
-                            <!-- Modal footer -->
-                           <!--  <div class="modal-footer">
+                        </div>
+                        <!-- Modal footer -->
+                        <!--  <div class="modal-footer">
                                 <button type="button" class="btn btn-success" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#modalEnviar">Enviar</button>
                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#modalEliminar">Cancelar</button>
                             </div> -->
-                        </div>
                     </div>
                 </div>
-                <!--Modal enviado-->
-                <div class="modal" tabindex="-1" id="modalEnviar">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <!-- Modal Header -->
-                            <div class="modal-header">
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <!-- Modal body -->
-                            <div class="modal-body text-center">
-                                <img class="img-fluid" src="Assets/img/checked.png">
-                                <h3>Mensaje enviado correctamente!</h3>
-                            </div>
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            </div>
+            </div>
+            <!--Modal enviado-->
+            <div class="modal" tabindex="-1" id="modalEnviar">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <!-- Modal body -->
+                        <div class="modal-body text-center">
+                            <img class="img-fluid" src="Assets/img/checked.png">
+                            <h3>Mensaje enviado correctamente!</h3>
+                        </div>
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
     <br>
