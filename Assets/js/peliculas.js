@@ -3,12 +3,12 @@ const BASEURI = "https://api.themoviedb.org/3/";
 const BASEURLIMG = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2";
 const WRAPPERPELICULAS = document.getElementById('wrapperPeliculas');
 const BOTONCARTELERA = document.getElementById('enCartelera');
+const BOTONAESTRENAR = document.getElementById('aEstrenar');
+const BOTONPOPULARES = document.getElementById('populares');
+const BOTONMEJORVALORADAS = document.getElementById('mejorValoradas');
 let peliculaJSON;
 let peliculas;
 
-/* https://api.themoviedb.org/3/trending/all/week?api_key=ab5eea38d623f059c3196ac7fb88a4c1 Obtener Tendencias */
-/* https://api.themoviedb.org/3/discover/movie?api_key=ab5eea38d623f059c3196ac7fb88a4c1&language=es-ES&sort_by=popularity.desc&include_adult=false&include_video=false&page=1 Peliculas Populares*/
-/* https://api.themoviedb.org/3/movie/now_playing?api_key=ab5eea38d623f059c3196ac7fb88a4c1&language=es-ES&page=1 En cartelera*/
 function obtenerPeliculas(url, callback) {
     var response;
     response = new XMLHttpRequest();
@@ -41,7 +41,10 @@ function crearPeliculas(coleccionPeliculas) {
         nuevaColumna.appendChild(nuevaCard);
         /* Agrego imagen de la noticia */
         let imagen = document.createElement('img');
-        imagen.src = `${BASEURLIMG}${unaPelicula.poster_path}`;
+        if(unaPelicula.poster_path === null)
+            imagen.src = "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg";
+        else
+            imagen.src = `${BASEURLIMG}${unaPelicula.poster_path}`;
         imagen.classList.add('card-img-top');
         nuevaCard.appendChild(imagen);
         /* Agrego card-body */
@@ -64,23 +67,51 @@ function crearPeliculas(coleccionPeliculas) {
     }
 }
 
-function cargarTendencias() {
-    obtenerPeliculas(`https://api.themoviedb.org/3/trending/all/week?api_key=${APIKEY}`, renderizarPeliculas);
-}
-
 function cargarPeliculasEnCartelera() {
-    obtenerPeliculas(`https://api.themoviedb.org/3/movie/now_playing?api_key=ab5eea38d623f059c3196ac7fb88a4c1&language=es-ES&page=1`, renderizarPeliculas);
+    obtenerPeliculas(`https://api.themoviedb.org/3/movie/now_playing?api_key=${APIKEY}&language=es-ES&page=1`, renderizarPeliculas);
+}
+function cargarPeliculasAEstrenar() {
+    obtenerPeliculas(`https://api.themoviedb.org/3/movie/upcoming?api_key=${APIKEY}&language=es-ES&page=1&region=US`, renderizarPeliculas);
+}
+function cargarPeliculasMejorValoradas() {
+    obtenerPeliculas(`https://api.themoviedb.org/3/movie/top_rated?api_key=${APIKEY}&language=es-ES&page=1`, renderizarPeliculas);
+}
+function cargarPeliculasMasPopulares() {
+    obtenerPeliculas(`https://api.themoviedb.org/3/movie/popular?api_key=${APIKEY}&language=es-ES&page=1`, renderizarPeliculas);
 }
 
-let seccionActual = 'null'
-BOTONCARTELERA.onclick = function() {
-    if (seccionActual != 'enCartelera') {
+let seleccionActual = 'null'
+BOTONCARTELERA.onclick = function (){
+    if (seleccionActual != 'enCartelera') {
         eliminarPeliculasExistentes();
         cargarPeliculasEnCartelera();
     }
-    seccionActual = 'enCartelera';
+    seleccionActual = 'enCartelera';
 };
 
-function eliminarPeliculasExistentes() {
+BOTONPOPULARES.onclick = function (){
+    if (seleccionActual != 'populares') {
+        eliminarPeliculasExistentes();
+        cargarPeliculasMasPopulares();
+    }
+    seleccionActual = 'populares';
+};
+
+BOTONAESTRENAR.onclick = function (){
+    if (seleccionActual != 'aEstrenar') {
+        eliminarPeliculasExistentes();
+        cargarPeliculasAEstrenar();
+    }
+    seleccionActual = 'aEstrenar';
+};
+BOTONMEJORVALORADAS.onclick = function (){
+    if (seleccionActual != 'mejorValoradas') {
+        eliminarPeliculasExistentes();
+        cargarPeliculasMejorValoradas();
+    }
+    seleccionActual = 'mejorValoradas';
+};
+
+function eliminarPeliculasExistentes(){
     WRAPPERPELICULAS.innerHTML = "";
 }
