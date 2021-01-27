@@ -165,7 +165,7 @@
                 </div>
                 <!-- Modal body -->
                 <div class="card-body">
-                    <form id="form1" method="post" class="needs-validation" novalidate>
+                    <form id="form1" action="https://formspree.io/f/mwkwyjqz" method="POST" class="needs-validation" novalidate>
                         <div class="form-row">
                             <div class="col-md-12 mb-3">
                                 <label for="validationCustom01" class="form-label">Nombre</label>
@@ -181,30 +181,32 @@
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label for="validationCustom03" class="form-label">Indicanos el motivo de tu
-                                    mensaje:</label>
+                                mensaje:</label>
                                 <select class="form-select" id="validationCustom03" required>
-                                    <option selected disabled value="">Elige una opción</option>
-                                    <option value="1">Problema</option>
-                                    <option value="2">Propuesta</option>
-                                    <option value="3">Me gusta/No me gusta</option>
-                                    <option value="4">Otro</option>
-                                </select>
+                                <option selected disabled value="">Elige una opción</option>
+                                <option value="1">Problema</option>
+                                <option value="2">Propuesta</option>
+                                <option value="3">Me gusta/No me gusta</option>
+                                <option value="4">Otro</option>
+                            </select>
                                 <div class="invalid-feedback">Seleccione una opcion.</div>
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label for="mensaje" class="col-form-label">Mensaje:</label>
-                                <textarea name="mensaje" class="form-control" id="mensaje"></textarea>
+                                <textarea class="form-control" id="mensaje" type="text" name="message"></textarea>
                             </div>
-                            <button class="btn btn-success" type="submit">Enviar</button>
+                            <button class="btn btn-success" type="submit" id="my-form-button">Enviar</button>
                         </div>
+                        <p id="my-form-status"></p>
+
                     </form>
                 </div>
             </div>
             <!-- Modal footer -->
             <!--  <div class="modal-footer">
-                                <button type="button" class="btn btn-success" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#modalEnviar">Enviar</button>
-                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#modalEliminar">Cancelar</button>
-                            </div> -->
+                            <button type="button" class="btn btn-success" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#modalEnviar">Enviar</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#modalEliminar">Cancelar</button>
+                        </div> -->
         </div>
     </div>
     <!--Modal enviado-->
@@ -222,6 +224,26 @@
                 </div>
                 <!-- Modal footer -->
                 <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cerrar">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Modal error-->
+    <div class="modal" tabindex="-1" id="modalError">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body text-center">
+                    <img class="img-fluid" src="Assets/img/cancelar.png">
+                    <h3>Hubo un problema, por favor intentá nuevamente</h3>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
@@ -233,6 +255,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous">
     </script>
     <script src="Assets/js/series.js"></script>
+    <script src="Assets/js/contacto.js"></script>
+
 </body>
 
 </html>
