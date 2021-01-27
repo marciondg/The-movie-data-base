@@ -68,6 +68,7 @@ window.onload = function cargarTendencias() {
     obtenerPeliculas(`https://api.themoviedb.org/3/trending/all/week?api_key=${APIKEY}`, renderizarPeliculas);
 }
 
+//Validaciones form 
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function() {
@@ -87,7 +88,6 @@ window.onload = function cargarTendencias() {
         });
     }, false);
 });
-
 
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields
