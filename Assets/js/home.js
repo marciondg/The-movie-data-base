@@ -38,7 +38,10 @@ function crearPeliculas(coleccionPeliculas) {
         nuevaColumna.appendChild(nuevaCard);
         /* Agrego imagen de la noticia */
         let imagen = document.createElement('img');
-        imagen.src = `${BASEURLIMG}${unaPelicula.poster_path}`;
+        if (unaPelicula.poster_path === null)
+            imagen.src = "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg";
+        else
+            imagen.src = `${BASEURLIMG}${unaPelicula.poster_path}`;
         imagen.classList.add('card-img-top');
         nuevaCard.appendChild(imagen);
         /* Agrego card-body */
