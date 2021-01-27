@@ -1,6 +1,5 @@
 .navbar {
     background-color: rgb(3, 37, 65);
-    ;
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -65,4 +64,8 @@ ul {
 
 .btn-group {
     margin-bottom: 20px;
+}
+.btn-outline-success {
+    color: #ffffff;
+    border-color: #ffffff;
 }

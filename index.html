@@ -26,16 +26,6 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <!--                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Menu 1
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Desplegable 1</a></li>
-                                <li><a class="dropdown-item" href="#">Desplegable 2</a></li>
-                            </ul>
-                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link" href="peliculas.html">Películas</a>
                         </li>
@@ -43,6 +33,10 @@
                             <a class="nav-link" href="series.html">Series</a>
                         </li>
                     </ul>
+                    <form class="d-flex" action="#" id = "buscador">
+                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" id="inputBusqueda">
+                        <button class="btn btn-outline-success" type="submit" id="botonBuscar">Buscar</button>
+                    </form>
                 </div>
             </div>
         </nav>
@@ -75,7 +69,7 @@
     <hr>
     <section id="tendencias">
         <div class="container">
-            <h2>Tendencias</h2>
+            <h2 id="tituloSeccion">Tendencias</h2>
             <div class="row row-cols-1 row-cols-md-3 g-5" id="wrapperPeliculas"></div>
         </div>
     </section>

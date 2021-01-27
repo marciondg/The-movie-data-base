@@ -107,3 +107,26 @@ window.onload = function cargarTendencias() {
             }, false)
         })
 })()
+
+
+/* Buscador */
+
+let BOTONBUSCAR = document.getElementById('botonBuscar');
+const INPUT = document.getElementById('inputBusqueda');
+const FORMULARIO = document.getElementById('buscador');
+const WRAPPERRESULTADOS = document.getElementById('wrapperResultados');
+
+
+/*Buscador*/
+BOTONBUSCAR.addEventListener('click',(e)=>{
+    e.preventDefault();
+    let query = INPUT.value;
+    if(query != "")
+        buscar(query);
+});
+
+function buscar (query){
+    WRAPPERPELICULAS.innerHTML = "";
+    document.getElementById("tituloSeccion").innerHTML = "Resultados";
+    obtenerPeliculas(`https://api.themoviedb.org/3/search/multi?api_key=${APIKEY}&language=es-ES&query=${query}&page=1&include_adult=false`, renderizarPeliculas);
+}
