@@ -108,7 +108,7 @@
                     <H3>lo básico</H3>
                     <ul>
                         <li>Sobre nosotros</li>
-                        <li>Contacto</li>
+                        <li><a href="" data-bs-toggle="modal" data-bs-target="#primerModal">Contacto</a></li>
                         <li>Soporte</li>
                     </ul>
                 </div>
@@ -152,8 +152,81 @@
                 </div>
             </div>
         </div>
-    </footer>
 
+    </footer>
+    <!-- Modal 1 -->
+    <div class="modal" tabindex="-1" id="primerModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Contacto</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!-- Modal body -->
+                <div class="card-body">
+                    <form id="form1" method="post" class="needs-validation" novalidate>
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3">
+                                <label for="validationCustom01" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="validationCustom01" value="" required>
+                                <div class="valid-feedback">Válido!</div>
+                                <div class="invalid-feedback">Complete el campo.</div>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="validationCustom02" class="form-label">Email</label>
+                                <input name="email" type="email" class="form-control" id="email" placeholder="ejemplo@mail.com" aria-describedby="inputGroupPrepend" required>
+                                <div class="valid-feedback">Válido!</div>
+                                <div class="invalid-feedback">Complete el campo.</div>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="validationCustom03" class="form-label">Indicanos el motivo de tu
+                                    mensaje:</label>
+                                <select class="form-select" id="validationCustom03" required>
+                                    <option selected disabled value="">Elige una opción</option>
+                                    <option value="1">Problema</option>
+                                    <option value="2">Propuesta</option>
+                                    <option value="3">Me gusta/No me gusta</option>
+                                    <option value="4">Otro</option>
+                                </select>
+                                <div class="invalid-feedback">Seleccione una opcion.</div>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="mensaje" class="col-form-label">Mensaje:</label>
+                                <textarea name="mensaje" class="form-control" id="mensaje"></textarea>
+                            </div>
+                            <button class="btn btn-success" type="submit">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Modal footer -->
+            <!--  <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#modalEnviar">Enviar</button>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#modalEliminar">Cancelar</button>
+                            </div> -->
+        </div>
+    </div>
+    <!--Modal enviado-->
+    <div class="modal" tabindex="-1" id="modalEnviar">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body text-center">
+                    <img class="img-fluid" src="Assets/img/checked.png">
+                    <h3>Mensaje enviado correctamente!</h3>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous">
     </script>
