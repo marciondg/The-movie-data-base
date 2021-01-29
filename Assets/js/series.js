@@ -104,8 +104,13 @@ BOTONMEJORVALORADAS.onclick = function() {
     seleccionActual = 'mejorValoradas';
 };
 
+/*
 function eliminarseriesExistentes() {
     WRAPPERSERIES.innerHTML = "";
+}*/
+
+function eliminarPeliculasExistentes() {
+    $("#wrapperPeliculas").html("");
 }
 
 //Validaciones form 
