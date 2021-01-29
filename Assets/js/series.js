@@ -8,8 +8,6 @@ const BOTONMEJORVALORADAS = document.getElementById('mejorValoradas');
 let serieJSON;
 let series;
 
-/* https://api.themoviedb.org/3/discover/movie?api_key=ab5eea38d623f059c3196ac7fb88a4c1&language=es-ES&sort_by=popularity.desc&include_adult=false&include_video=false&page=1 series Populares*/
-/* https://api.themoviedb.org/3/movie/now_playing?api_key=ab5eea38d623f059c3196ac7fb88a4c1&language=es-ES&page=1 En cartelera*/
 function obtenerSeries(url, callback) {
     var response;
     response = new XMLHttpRequest();
